@@ -20,7 +20,7 @@ uploaded = files.upload()
 #figure out how to incorporate team record
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
-pip install streamlit
+
 # load data
 QB20 = pd.read_csv(io.BytesIO(uploaded['QB20 - Sheet1.csv']))
 QB21 = pd.read_csv(io.BytesIO(uploaded['QB22.csv']))
