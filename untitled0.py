@@ -10,7 +10,6 @@ Original file is located at
 import io
 import pandas as pd
 import numpy as np
-pip install -U scikit-learn
 from sklearn.linear_model import LinearRegression
 import requests
 uploaded_file = st.file_uploader("Choose a file")
