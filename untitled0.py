@@ -7,15 +7,17 @@ Original file is located at
     https://colab.research.google.com/drive/1gLib3fw8WC8DwpLbKRmvn7sITQINCNcx
 """
 
-from google.colab import drive
 import io
 import pandas as pd
-from google.colab import files
 import numpy as np
 from sklearn.linear_model import LinearRegression
-import ipywidgets as widgets
 import requests
-uploaded = files.upload()
+uploaded_file = st.file_uploader("Choose a file")
+
+if uploaded_file is not None:
+    # Process the file and do something with it
+    file_contents = uploaded_file.read()
+    # Add your code to process the file here
 
 #figure out how to incorporate team record
 from sklearn.metrics import mean_absolute_error
