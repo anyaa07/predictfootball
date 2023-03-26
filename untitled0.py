@@ -13,7 +13,9 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-uploaded_file = st.file_uploader("Choose a file")
+QB_20 = st.file_uploader("Choose a file")
+QB_21 = st.file_uploader("Choose a file")
+QB_22 = st.file_uploader("Choose a file")
 
 if uploaded_file is not None:
     # Process the file and do something with it
@@ -25,9 +27,9 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 
 # load data
-QB20 = pd.read_csv(io.BytesIO(uploaded['QB20 - Sheet1.csv']))
-QB21 = pd.read_csv(io.BytesIO(uploaded['QB22.csv']))
-QB22 = pd.read_csv(io.BytesIO(uploaded['QBs.csv']))
+QB20 = pd.read_csv(io.BytesIO(uploaded[QB_20]))
+QB21 = pd.read_csv(io.BytesIO(uploaded[QB_21]))
+QB22 = pd.read_csv(io.BytesIO(uploaded[QB_22]))
 #Records = pd.read_csv(io.BytesIO(uploaded['Records.csv']))
 pd.set_option('display.max_rows', None)
 
