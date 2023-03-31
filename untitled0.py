@@ -14,8 +14,10 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-QB_20 = pd.read_csv(uploaded_file)
-st.write(QB_20)
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+    QB_20 = pd.read_csv(uploaded_file)
+    st.write(QB_20)
 #QB_20 = st.file_uploader("Choose a file")
 #QB_21 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
