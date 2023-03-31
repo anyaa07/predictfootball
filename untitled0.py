@@ -14,10 +14,16 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file1 = st.file_uploader("Choose a file")
+uploaded_file2 = st.file_uploader("Choose a file")
+uploaded_file3 = st.file_uploader("Choose a file")
 if uploaded_file is not None:
-    QB_20 = pd.read_csv(uploaded_file)
+    QB_20 = pd.read_csv(uploaded_file1)
     st.write(QB_20)
+    QB_21 = pd.read_csv(uploaded_file2)
+    st.write(QB_21)
+    QB_22 = pd.read_csv(uploaded_file3)
+    st.write(QB_22)
 #QB_20 = st.file_uploader("Choose a file")
 #QB_21 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
