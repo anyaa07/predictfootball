@@ -14,8 +14,8 @@ from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
 QB_20 = st.file_uploader("Choose a file")
-QB_21 = st.file_uploader("Choose a file")
-QB_22 = st.file_uploader("Choose a file")
+#QB_21 = st.file_uploader("Choose a file")
+#QB_22 = st.file_uploader("Choose a file")
 
 if uploaded_file is not None:
     # Process the file and do something with it
