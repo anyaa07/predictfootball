@@ -14,13 +14,15 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-QB_20 = st.file_uploader("Choose a file")
+QB_20 = pd.read_csv(uploaded_file)
+st.write(QB_20)
+#QB_20 = st.file_uploader("Choose a file")
 #QB_21 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
 
 #if uploaded_file is not None:
-file_contents = stringio.read()
-st.write(stringio)
+#file_contents = stringio.read()
+#st.write(stringio)
     # Add your code to process the file here
 
 #figure out how to incorporate team record
