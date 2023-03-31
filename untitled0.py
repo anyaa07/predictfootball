@@ -40,6 +40,7 @@ from sklearn.metrics import mean_squared_error
 pd.set_option('display.max_rows', None)
 
 # merge data
+print(QB21)
 QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
 QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
 merged = pd.concat([QB20_2, QB21_2], axis=0, ignore_index=True)
