@@ -8,6 +8,7 @@ Original file is located at
 """
 
 import io
+from io import StringIO
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -18,7 +19,7 @@ QB_20 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
 
 #if uploaded_file is not None:
-file_contents = QB_20.read()
+file_contents = stringio.read()
 st.write(QB_20)
     # Add your code to process the file here
 
