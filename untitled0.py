@@ -32,9 +32,9 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 
 # load data
-QB20 = pd.read_csv(io.BytesIO(uploaded[QB_20]))
-QB21 = pd.read_csv(io.BytesIO(uploaded[QB_21]))
-QB22 = pd.read_csv(io.BytesIO(uploaded[QB_22]))
+#QB20 = pd.read_csv(io.BytesIO(uploaded[QB_20]))
+#QB21 = pd.read_csv(io.BytesIO(uploaded[QB_21]))
+#QB22 = pd.read_csv(io.BytesIO(uploaded[QB_22]))
 #Records = pd.read_csv(io.BytesIO(uploaded['Records.csv']))
 pd.set_option('display.max_rows', None)
 
