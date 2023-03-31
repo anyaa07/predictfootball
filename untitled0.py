@@ -20,7 +20,7 @@ QB_20 = st.file_uploader("Choose a file")
 
 #if uploaded_file is not None:
 file_contents = stringio.read()
-st.write(QB_20)
+st.write(stringio)
     # Add your code to process the file here
 
 #figure out how to incorporate team record
