@@ -14,24 +14,32 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-# check if files were uploaded
-uploaded_files = st.file_uploader("Choose CSV files to upload", type="csv", accept_multiple_files=True)
 
-# create a button using st.button()
-if uploaded_files:
-    if st.button("Display DataFrames"):
-        # create an empty dictionary to store the DataFrames
-        dataframes = {}
-        # loop through each uploaded file
-        for file in uploaded_files:
-            # read the file content and convert to a DataFrame object
-            df = pd.read_csv(file)
-            # store the DataFrame in the dictionary with the filename as the key
-            dataframes[file.name] = df
-        # loop through the dictionary keys and write each DataFrame
-        for filename, df in dataframes.items():
-            st.write(f"## {filename}")
-            st.write(df)
+# create file uploader for QB21 file
+qb20_file = st.file_uploader("Upload QB20 CSV file", type="csv")
+
+# create file uploader for QB20 file
+qb21_file = st.file_uploader("Upload QB21 CSV file", type="csv")
+
+qb22_file = st.file_uploader("Upload QB22 CSV file", type="csv")
+
+# create a button to rename columns
+if qb20_file and qb21_file and qb_23:
+    if st.button("Rename Columns"):
+        # read QB21 and QB20 files into DataFrames
+        QB20 = pd.read_csv(qb20_file)
+        QB21 = pd.read_csv(qb21_file)
+        QB22 = pd.read_csv(qb22_file)
+
+        # rename columns in QB21 and QB20 DataFrames
+        QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
+        QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
+
+        # display the renamed DataFrames
+        st.write("QB21 with renamed columns")
+        st.write(QB21_2)
+        st.write("QB20 with renamed columns")
+        st.write(QB20_2)
 #QB_20 = st.file_uploader("Choose a file")
 #QB_21 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
@@ -40,10 +48,6 @@ if uploaded_files:
 #file_contents = stringio.read()
 #st.write(stringio)
     # Add your code to process the file here
-
-#figure out how to incorporate team record
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import mean_squared_error
 
 # load data
 #QB20 = pd.read_csv(io.BytesIO(uploaded[QB_20]))
