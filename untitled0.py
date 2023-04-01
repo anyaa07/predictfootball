@@ -14,11 +14,22 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
+# create a file uploader using st.file_uploader() with accept_multiple_files=True
+uploaded_files = st.file_uploader("Choose CSV files to upload", type="csv", accept_multiple_files=True)
+
+# check if files were uploaded
+if uploaded_files is not None:
+    # create an empty dictionary to store the DataFrames
+    dataframes = {}
+    # loop through each uploaded file
+    for file in uploaded_files:
+        # read the file content and convert to a DataFrame object
+        df = pd.read_csv(file)
+        # store the DataFrame in the dictionary with the filename as the key
+        dataframes[file.name] = df
+        # display the DataFrame in a Streamlit table with the filename as the title
+        st.write(f"## {file.name}")
+        st.write(QB20)
 #QB_20 = st.file_uploader("Choose a file")
 #QB_21 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
@@ -40,7 +51,6 @@ from sklearn.metrics import mean_squared_error
 pd.set_option('display.max_rows', None)
 
 # merge data
-st.dataframe(QB21)
 QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
 QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
 merged = pd.concat([QB20_2, QB21_2], axis=0, ignore_index=True)
