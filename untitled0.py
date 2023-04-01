@@ -14,22 +14,24 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
-# create a file uploader using st.file_uploader() with accept_multiple_files=True
+# check if files were uploaded
 uploaded_files = st.file_uploader("Choose CSV files to upload", type="csv", accept_multiple_files=True)
 
-# check if files were uploaded
-if uploaded_files is not None:
-    # create an empty dictionary to store the DataFrames
-    dataframes = {}
-    # loop through each uploaded file
-    for file in uploaded_files:
-        # read the file content and convert to a DataFrame object
-        df = pd.read_csv(file)
-        # store the DataFrame in the dictionary with the filename as the key
-        dataframes[file.name] = df
-        # display the DataFrame in a Streamlit table with the filename as the title
-        st.write(f"## {file.name}")
-        st.write(QB20)
+# create a button using st.button()
+if uploaded_files:
+    if st.button("Display DataFrames"):
+        # create an empty dictionary to store the DataFrames
+        dataframes = {}
+        # loop through each uploaded file
+        for file in uploaded_files:
+            # read the file content and convert to a DataFrame object
+            df = pd.read_csv(file)
+            # store the DataFrame in the dictionary with the filename as the key
+            dataframes[file.name] = df
+        # loop through the dictionary keys and write each DataFrame
+        for filename, df in dataframes.items():
+            st.write(f"## {filename}")
+            st.write(df)
 #QB_20 = st.file_uploader("Choose a file")
 #QB_21 = st.file_uploader("Choose a file")
 #QB_22 = st.file_uploader("Choose a file")
