@@ -24,7 +24,7 @@ qb21_file = st.file_uploader("Upload QB21 CSV file", type="csv")
 qb22_file = st.file_uploader("Upload QB22 CSV file", type="csv")
 
 # create a button to rename columns
-if qb20_file and qb21_file and qb_22:
+if qb20_file and qb21_file and qb22_file:
     if st.button("Rename Columns"):
         # read QB21 and QB20 files into DataFrames
         QB20 = pd.read_csv(qb20_file)
