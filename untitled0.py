@@ -87,7 +87,7 @@ intp = (data1['INT_2023_24'] / data1['Att_2023_24']) * 0.25
 
 data1['QBR'] = ((data1['Comp_2023_24'] - 30) / 20 + ((data1['Pass Yds_2023_24'] / data1['Att_2023_24']) - 3) * 0.25 + (data1['TD_2023_24']) * 0.2 + 2.375 - (data1['INT_2023_24'] * 0.25)) * 100 / 6 / 3
 
-selected_columns = data1[['Pass Yds_2023_24', 'TD_2023_24', 'INT_2023_24', 'Comp_2023_24', 'Att_2023_24', 'QBR', 'Fantasy_Points']]
+selected_columns = data1[['Team', 'Player', 'Pass Yds_2023_24', 'TD_2023_24', 'INT_2023_24', 'Comp_2023_24', 'Att_2023_24', 'QBR', 'Fantasy_Points']]
 # print the modified data frame
 st.write(selected_columns)
     
