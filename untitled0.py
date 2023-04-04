@@ -78,6 +78,9 @@ data1['Comp_2023_24'] = data1['Comp_2023_24'].astype(int)
 data1['Att_2023_24'] = data1['Att_2023_24'].astype(int)
 
 data1['QBR'] = ((data1['Comp_2023_24'] - 30) / 20 + ((data1['Pass Yds_2023_24'] / data1['Att_2023_24']) - 3) * 0.25 + (data1['TD_2023_24']) * 0.2 + 2.375 - (data1['INT_2023_24'] * 0.25)) * 100 / 6 / 3
+data1['QBR'] = data1['QBR'].round(1).astype(float)
+data1['Fantasy_Points'] = data1['Fantasy_Points'].round(1).astype(float)
+
 
 selected_columns = data1[['Team', 'Player', 'Pass Yds_2023_24', 'TD_2023_24', 'INT_2023_24', 'Comp_2023_24', 'Att_2023_24', 'QBR', 'Fantasy_Points']]
 st.write("Hello and welcome! In this application, you can input the name of a quarterback to see what stats that quarterback is predicted to have for the 2023-2024 season!")
