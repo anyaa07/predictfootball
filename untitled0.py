@@ -63,7 +63,8 @@ for index, player in enumerate(data1['Player'].unique()):
     data1.loc[mask, 'INT_2023_24'] = predicted_stats[index][2]
     data1.loc[mask, 'Comp_2023_24'] = predicted_stats[index][3]
     data1.loc[mask, 'Att_2023_24'] = predicted_stats[index][4]
-    fantasy_points = (data1['Pass Yds_2023_24'] * pass_yd_pts + data1['TD_2023_24'] * pass_td_pts + data1['INT_2023_24'] * int_pts) / 1.26
+    fantasy_points1 = data1['Pass Yds_2023_24'] * pass_yd_pts + data1['TD_2023_24'] * pass_td_pts + data1['INT_2023_24'] * int_pts
+    fantasy_points = fantasy_points1 / 1.26
     data1.loc[mask, 'Fantasy_Points'] = predicted_stats[index][4]
 #QBR Calculation
 cp = (data1['Comp_2023_24'] / data1['Att_2023_24'] - 0.3) * 0.05
