@@ -25,20 +25,6 @@ QB20 = pd.read_csv(url)
 QB21 = pd.read_csv(url2)
 QB22 = pd.read_csv(url3)
 
-
-
-
-# create file uploader for QB21 file
-#qb20_file = st.file_uploader("Upload QB20 CSV file", type="csv")
-
-# create file uploader for QB20 file
-#qb21_file = st.file_uploader("Upload QB21 CSV file", type="csv")
-
-#qb22_file = st.file_uploader("Upload QB22 CSV file", type="csv")
-
-# create a button to rename columns
-
-
 # merge data
 QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
 QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
@@ -88,7 +74,8 @@ intp = (data1['INT_2023_24'] / data1['Att_2023_24']) * 0.25
 data1['QBR'] = ((data1['Comp_2023_24'] - 30) / 20 + ((data1['Pass Yds_2023_24'] / data1['Att_2023_24']) - 3) * 0.25 + (data1['TD_2023_24']) * 0.2 + 2.375 - (data1['INT_2023_24'] * 0.25)) * 100 / 6 / 3
 
 selected_columns = data1[['Team', 'Player', 'Pass Yds_2023_24', 'TD_2023_24', 'INT_2023_24', 'Comp_2023_24', 'Att_2023_24', 'QBR', 'Fantasy_Points']]
-player_search = st.text_input("Enter the name of the player you want to search for (ensure that the name is capitalized and spelled correctly):")
+st.write("Hello! Welcome to the Predict application. Here you can input the name of the quarterback to see what stats that quarterback is predicted to have for the 2023-2024 season!")
+player_search = st.text_input("Enter the name of the quarterback you want to search for (ensure that the name is capitalized and spelled correctly):")
 
 # filter data for player search
 if player_search:
@@ -96,45 +83,3 @@ if player_search:
         filtered_data = selected_columns[selected_columns['Player'] == player_search][['Team', 'Player', 'Pass Yds_2023_24', 'TD_2023_24', 'INT_2023_24', 'Comp_2023_24', 'Att_2023_24', 'QBR', 'Fantasy_Points']]
         st.write(filtered_data)
 
-
-# print the modified data frame
-#st.write(selected_columns)
-    
-        
-        
-#QB_20 = st.file_uploader("Choose a file")
-#QB_21 = st.file_uploader("Choose a file")
-#QB_22 = st.file_uploader("Choose a file")
-
-#if uploaded_file is not None:
-#file_contents = stringio.read()
-#st.write(stringio)
-    # Add your code to process the file here
-
-# load data
-#QB20 = pd.read_csv(io.BytesIO(uploaded[QB_20]))
-#QB21 = pd.read_csv(io.BytesIO(uploaded[QB_21]))
-#QB22 = pd.read_csv(io.BytesIO(uploaded[QB_22]))
-#Records = pd.read_csv(io.BytesIO(uploaded['Records.csv']))
-
-
-# merge data
-#QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
-#QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
-#merged = pd.concat([QB20_2, QB21_2], axis=0, ignore_index=True)
-#merged2 = pd.concat([QB21_2, QB22], axis=0, ignore_index=True)
-#data = pd.merge(QB20, QB21, on=['Player', 'Team'])
-#data1 = pd.merge(data, QB22, on=['Player', 'Team'])
-
-#data2 = pd.merge(data, Records, on='Team')
-
-
-    
-# assign predicted statistics to the corresponding columns -- 
-# mask --> selects only the rows of data that correspond to the current player that is being looped through
-#enumerate --> gets the index of each of the selected rows where the players name matches the player variable, and assigns predicted stats only to the correct rows
-
-# print the modified data frame
-
-#mean_absolute_error(y, predicted_stats)
-#mean_squared_error(y, predicted_stats)
