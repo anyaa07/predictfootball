@@ -15,21 +15,34 @@ from sklearn.linear_model import LinearRegression
 import requests
 import streamlit as st
 
+# Replace the URL below with the raw URL of your CSV file on GitHub
+url = "https://raw.githubusercontent.com/anyaa07/QBs/main/QB20.csv"
+url2 = "https://raw.githubusercontent.com/anyaa07/QBs/main/QB21.csv"
+url3 = "https://raw.githubusercontent.com/anyaa07/QBs/main/QB22.csv"
+
+# Read the CSV file into a DataFrame
+QB20 = pd.read_csv(url)
+QB21 = pd.read_csv(url2)
+QB22 = pd.read_csv(url3)
+
+
+
+
 # create file uploader for QB21 file
-qb20_file = st.file_uploader("Upload QB20 CSV file", type="csv")
+#qb20_file = st.file_uploader("Upload QB20 CSV file", type="csv")
 
 # create file uploader for QB20 file
-qb21_file = st.file_uploader("Upload QB21 CSV file", type="csv")
+#qb21_file = st.file_uploader("Upload QB21 CSV file", type="csv")
 
-qb22_file = st.file_uploader("Upload QB22 CSV file", type="csv")
+#qb22_file = st.file_uploader("Upload QB22 CSV file", type="csv")
 
 # create a button to rename columns
-if qb20_file and qb21_file and qb22_file:
+if QB20 and QB21 and QB22:
     if st.button("Execute Code"):
         # read QB21 and QB20 files into DataFrames
-        QB20 = pd.read_csv(qb20_file)
-        QB21 = pd.read_csv(qb21_file)
-        QB22 = pd.read_csv(qb22_file)
+        #QB20 = pd.read_csv(qb20_file)
+        #QB21 = pd.read_csv(qb21_file)
+        #QB22 = pd.read_csv(qb22_file)
 
         # rename columns in QB21 and QB20 DataFrames
         QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
