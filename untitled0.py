@@ -91,4 +91,4 @@ if player_search:
     if st.button('Search'):
         filtered_data = selected_columns[selected_columns['Player'] == player_search][['Team', 'Player', 'Pass Yds_2023_24', 'TD_2023_24', 'INT_2023_24', 'Comp_2023_24', 'Att_2023_24', 'QBR', 'Fantasy_Points']]
         st.write(filtered_data)
-
+st.write("How does this work?: A linear regression model was trained on 3+ seasons worth of data for 75 different quarterbacks, and tested on one season worth of data. From there, projected stats for the next season (2023-2024) were predicted, and accuracy was tested on the one season used as the testing set.")
