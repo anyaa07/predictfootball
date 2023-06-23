@@ -25,6 +25,16 @@ QB20 = pd.read_csv(url)
 QB21 = pd.read_csv(url2)
 QB22 = pd.read_csv(url3)
 
+# Assign weights to each dataframe
+weight_20 = .5 # Weight for QB20
+weight_21 = 1.5 # Weight for QB21
+weight_22 = 1.5# Weight for QB22
+
+# Add weight columns to each dataframe
+QB20['Weight'] = weight_20
+QB21['Weight'] = weight_21
+QB22['Weight'] = weight_22
+
 # merge data
 QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
 QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
@@ -44,7 +54,10 @@ for player in data1['Player'].unique():
     # fit model to player data, merge 20 and 21 for x, 21 and 22 for y
     X = merged[['Pass Yds', 'TD', 'INT', 'Comp', 'Att']]
     y = merged2[['Pass Yds', 'TD', 'INT', 'Comp', 'Att']]
-    model.fit(X, y)
+    sample_weights_X = QB20['Weight'].values  # Weight for QB20 data
+    sample_weights_y = QB22['Weight'].values  # Weight for QB22 data
+    sample_weights = np.concatenate((sample_weights_X, sample_weights_y))
+    model.fit(X, y, sample_weight=sample_weights)
 
 # predict 2023-24 season stats 
 predicted_stats = model.predict(QB22[['Pass Yds', 'TD', 'INT', 'Comp', 'Att']])
