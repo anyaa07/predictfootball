@@ -38,7 +38,7 @@ QB22['Weight'] = weight_22
 # merge data
 QB21_2 = QB21.rename(columns={'Pass': 'Pass Yds', 'TD2': 'TD', 'INT2': 'INT', 'Att2': 'Att', 'Comp2': 'Comp', 'Year2': 'Year'})
 QB20_2 = QB20.rename(columns={'TDs': 'TD', 'INTs': 'INT', 'Year3': 'Year'})
-merged = pd.concat([QB20_2, QB21_2], axis=0, ignore_index=True)
+merged = pd.concat([QB20_2, QB22], axis=0, ignore_index=True)
 merged2 = pd.concat([QB21_2, QB22], axis=0, ignore_index=True)
 data = pd.merge(QB20, QB21, on=['Player', 'Team'])
 data1 = pd.merge(data, QB22, on=['Player', 'Team'])
